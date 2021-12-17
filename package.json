@@ -1,0 +1,29 @@
+{
+  "name": "windowtoolbox",
+  "version": "1.0.0",
+  "description": "Window Toolbox for Electron and Windows",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "license": "MPL-2.0",
+  "private": true,
+  "scripts": {
+    "start": "node test.js",
+    "build:dev": "node-gyp build --debug",
+    "build": "node-gyp build",
+    "rebuild:dev": "node-gyp rebuild --debug",
+    "rebuild": "node-gyp rebuild",
+    "clean": "node-gyp clean",
+    "install": "node-gyp rebuild"
+  },
+  "dependencies": {
+    "bindings": "^1.5.0",
+    "node-addon-api": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.9",
+    "node-gyp": "^8.4.0"
+  },
+  "os": [
+    "win32"
+  ]
+}
