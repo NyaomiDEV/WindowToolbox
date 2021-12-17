@@ -5,8 +5,8 @@ Napi::Value SetWindowPosition(Napi::CallbackInfo const& info){
 	if(info.Length() != 7)
 		return info.Env().Undefined();
 
-    HWND hWnd = (HWND)info[0].As<Napi::Number>().Int64Value();
-    HWND hWndInsertAfter = (HWND)info[1].As<Napi::Number>().Int64Value();
+    HWND hWnd = (HWND)info[0].As<Napi::Buffer<unsigned long>>().Data();
+    HWND hWndInsertAfter = (HWND)info[1].As<Napi::Buffer<unsigned long>>().Data();
     int x = info[2].As<Napi::Number>().Int32Value();
     int y = info[3].As<Napi::Number>().Int32Value();
     int cx = info[4].As<Napi::Number>().Int32Value();
@@ -21,7 +21,7 @@ Napi::Value ParentToDesktop(Napi::CallbackInfo const& info){
     if (info.Length() != 1)
         return info.Env().Undefined();
 
-    HWND hWnd = (HWND)info[0].As<Napi::Number>().Int64Value();
+    HWND hWnd = (HWND)info[0].As<Napi::Buffer<unsigned long>>().Data();
     HWND desktop = GetDesktopWindow();
     HWND hWorkerW = NULL;
     HWND hShellViewWin = NULL;
